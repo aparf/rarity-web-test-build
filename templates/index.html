@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <title>Prediction service</title>
+   <meta charset="utf-8">
+   <meta description="boilerplate code">
+   <meta keywords="boilerplate, test">
+   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+</head>
+<body>
+   <div class="outer-container collections">
+      <div class="inner-container">
+<!--          {% for u in usr %}
+            <form action = "/collection" method = "POST">
+               <input type="submit" name="submit_button" value="{{u}}" class="item-container collection-button">
+               </input>
+
+            </form>
+         {% endfor %} -->
+         <div class="containerbackground">
+            <p class=character_justify>HOW RARE</p>
+        </div>
+         {% for u in usr %}
+            <form action = "/collection" method = "POST">
+               <button type="submit" class="item-container collection-button" value='{{u}}' name="submit_button">
+                  <div class="item label collection_id">{{u | replace("_", ' ')}}</div>
+                  <div class="item image collection_image" style="background-image: url({{u[0][3]}})"></div>
+               </button>
+            </form>
+         {% endfor %}
+
+
+         <form action = "/collection" method = "POST">
+               <button type="submit" class="item-container collection-button" value="Add new collection" name="submit_button">
+                  <div class="item label collection_id">Add new collection</div>
+                  <div class="item image collection_image" id="Add"></div>
+               </button>
+         </form>
+
+      </div>
+   </div>
+</body>
+</html>
+

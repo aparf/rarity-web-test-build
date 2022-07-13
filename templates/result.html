@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Prediction result</title>
+	<meta charset="utf-8">
+	<meta description="boilerplate code">
+	<meta keywords="boilerplate, test">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+</head>
+
+<body>
+
+	<div class="outer-container NFT-collection">
+		<!-- backroung picture -->
+		<div class="containerbackground">
+			<p class=character_justify>{{collectionName}}</p>
+        </div>
+
+		<div class="inner-container NFT-collection">
+			{% for u in usr %}
+			
+			<div class="item-container NFT-container">
+				<div class="item label token_id"> {{ u[-1] }} </div>
+				<div class ="item image token_image" style="background-image: url({{u[3]}})"> </div>
+				<div class="item label token_score"> {{ "{:10.4f}".format(u[-2])}} </div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+</html>
+
